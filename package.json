@@ -4,7 +4,8 @@
     "test": "jest",
     "build": "tsc",
     "predeploy": "npm run build",
-    "deploy": "npx serverless deploy"
+    "deploy": "npx serverless deploy",
+    "deploy:prod": "npm run deploy -- --stage prod"
   },
   "dependencies": {},
   "devDependencies": {
