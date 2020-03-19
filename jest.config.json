@@ -1,0 +1,32 @@
+{
+    "collectCoverage": true,
+    "coverageDirectory": "<rootDir>/coverage",
+    "coveragePathIgnorePatterns": [
+        "/node_modules",
+        "/dist/",
+        "__fixtures__",
+        "jest.setup.js"
+    ],
+    "coverageReporters": [
+        "json",
+        "lcov",
+        "text-summary"
+    ],
+    "globals": {
+        "ts-jest": {
+            "tsConfig": "tsconfig.json"
+        }
+    },
+    "preset": "ts-jest",
+    "roots": [
+        "<rootDir>/src"
+    ],
+    "setupFiles": [
+        "<rootDir>/jest.setup.js"
+    ],
+    "testRegex": ".*(test|spec)\\.(j|t)sx?$",
+    "testPathIgnorePatterns": [
+        "/node_modules/"
+    ],
+    "testEnvironment": "node"
+} 

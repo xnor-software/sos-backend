@@ -1,0 +1,24 @@
+{
+    "root": true,
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "nfen",
+        "nfen/plugins/import",
+        "plugin:import/typescript"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+               "alwaysTryTypes": true
+            }
+        }
+    },
+    "env": {
+        "jest": true,
+        "es6": true
+    },
+    "globals": {
+        "expect": false
+    }
+}
