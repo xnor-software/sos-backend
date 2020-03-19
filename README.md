@@ -1,8 +1,6 @@
-[![codecov](https://codecov.io/gh/nealfennimore/sos-app/branch/master/graph/badge.svg)](https://codecov.io/gh/nealfennimore/sos-app)
-![Test](https://github.com/nealfennimore/sos-app/workflows/Test/badge.svg)
+[![codecov](https://codecov.io/gh/xnorllc/sos-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/xnorllc/sos-backend)
+![Test](https://github.com/xnorllc/sos-backend/workflows/Test/badge.svg)
 
-# SOS App
+# SOS Backend
 
-## Debugging
-
-Follow the guide here: https://docs.expo.io/versions/latest/workflow/debugging/#startup
+Backend for [sos-app](https://github.com/xnorllc/sos-backend)
