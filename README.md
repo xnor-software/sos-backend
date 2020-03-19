@@ -4,4 +4,4 @@
 
 # SOS Backend
 
-Backend for [sos-app](https://github.com/xnorllc/sos-backend)
+Backend for [sos-app](https://github.com/xnorllc/sos-app)
