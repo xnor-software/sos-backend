@@ -1,8 +1,8 @@
-import { APIGatewayEvent } from 'aws-lambda';
+import { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda';
 
 export const resolvers = {
     Query: {
-        hello: (event: APIGatewayEvent): Record<string, any> => {
+        hello: (event: APIGatewayEvent): APIGatewayProxyResult => {
             return {
                 statusCode: 200,
                 body: JSON.stringify(

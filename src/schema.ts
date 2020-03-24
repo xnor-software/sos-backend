@@ -1,12 +1,12 @@
 import { gql } from 'apollo-server-lambda';
 
 export const schema = gql`
-    type Response {
+    type APIGatewayProxyResult {
         statusCode: Int
         body: String
     }
 
     type Query {
-        hello: Response
+        hello: APIGatewayProxyResult
     }
 `;
