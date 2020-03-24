@@ -4,7 +4,9 @@
     "test": "jest",
     "build": "tsc",
     "predeploy": "npm run build",
-    "deploy": "npx serverless deploy"
+    "deploy": "npx serverless deploy",
+    "predev": "npm run build",
+    "dev": "npx serverless offline"
   },
   "dependencies": {
     "apollo-server-lambda": "^2.11.0",
@@ -26,6 +28,7 @@
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.20.1",
     "jest": "^25.1.0",
+    "serverless-offline": "^6.0.0",
     "ts-jest": "^25.2.1",
     "typescript": "~3.6.3"
   },
