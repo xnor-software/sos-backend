@@ -1,22 +1,8 @@
 import { APIGatewayEvent } from 'aws-lambda';
-import { gql } from  'apollo-server-lambda';
 
-import { createHandler } from './handler';
-
-const typeDefs = gql`
-    type Response {
-        statusCode: Int
-        body: String
-    }
-
-    type Query {
-        hello: Response
-    }
-`;
-
-const resolvers = {
+export const resolvers = {
     Query: {
-        hello: ( event: APIGatewayEvent ): Record<string, any> => {
+        hello: (event: APIGatewayEvent): Record<string, any> => {
             return {
                 statusCode: 200,
                 body: JSON.stringify(
@@ -31,5 +17,3 @@ const resolvers = {
         }
     },
 };
-
-export const handler = createHandler({typeDefs, resolvers})
