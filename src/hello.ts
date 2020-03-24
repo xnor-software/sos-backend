@@ -1,5 +1,7 @@
 import { APIGatewayEvent } from 'aws-lambda';
-import { ApolloServer, gql } from  'apollo-server-lambda';
+import { gql } from  'apollo-server-lambda';
+
+import { createHandler } from './handler';
 
 const typeDefs = gql`
     type Response {
@@ -30,11 +32,4 @@ const resolvers = {
     },
 };
 
-const server = new ApolloServer( { typeDefs, resolvers } );
-
-export const handler = server.createHandler( {
-    cors: {
-        origin: '*',
-        credentials: true,
-    },
-} );
+export const handler = createHandler({typeDefs, resolvers})
