@@ -1,15 +1,21 @@
 /* eslint-disable no-param-reassign, no-param-reassign, max-len */
+/**
+ * External Dependencies
+ */
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
 import { graphqlLambda } from 'apollo-server-lambda/dist/lambdaApollo';
 import lambdaPlayground from 'graphql-playground-middleware-lambda';
 import { makeExecutableSchema } from 'graphql-tools';
+
+/**
+ * Internal Dependencies
+ */
 import { schema } from './schema';
 import { resolvers } from './resolvers';
 
 type CallbackOutput = APIGatewayProxyResult | undefined;
 type CallbackError = string | Error | null | undefined;
 type Callback = ( error: CallbackError, output: CallbackOutput ) => void;
-
 
 const myGraphQLSchema = makeExecutableSchema( {
     typeDefs: schema,

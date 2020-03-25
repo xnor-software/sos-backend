@@ -1,6 +1,12 @@
+/**
+ * External Dependencies
+ */
 import { APIGatewayEvent } from 'aws-lambda';
-import db from './db';
 
+/**
+ * Internal Dependencies
+ */
+import db from './db';
 import { User } from './types';
 
 // eslint-disable-next-line import/prefer-default-export
