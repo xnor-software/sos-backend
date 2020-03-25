@@ -7,7 +7,13 @@ export const schema = gql`
         body: String
     }
 
+    type User {
+        id: ID!
+        firstName: String!
+        lastName: String!
+    }
+
     type Query {
-        hello: APIGatewayProxyResult
+        users: [User]
     }
 `;

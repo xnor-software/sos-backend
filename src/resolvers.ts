@@ -1,18 +1,14 @@
-import { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda';
+import { APIGatewayEvent } from 'aws-lambda';
+import db from './db';
+
+import { User } from './types';
 
 // eslint-disable-next-line import/prefer-default-export
 export const resolvers = {
     Query: {
-        hello: ( event: APIGatewayEvent ): APIGatewayProxyResult => ( {
-            statusCode: 200,
-            body: JSON.stringify(
-                {
-                    message: 'Hello Serverless v1.0! Your function executed successfully!',
-                    input: event,
-                },
-                null,
-                2,
-            ),
-        } ),
+        users: async( event: APIGatewayEvent ): Promise<Array<User>> => {
+            const users = await db.select( '*' ).from( 'users' );
+            return users;
+        },
     },
 };

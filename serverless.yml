@@ -23,6 +23,12 @@ org: xnorllc
 provider:
   name: aws
   runtime: nodejs12.x
+  environment:
+    NODE_ENV: ${env:NODE_ENV}
+    DB_HOST: ${env:DB_HOST}
+    DB_USER: ${env:DB_USER}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_NAME: ${env:DB_NAME}
 
 # you can overwrite defaults here
 #  stage: dev
