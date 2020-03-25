@@ -64,6 +64,7 @@ provider:
 #    - exclude-me-dir/**
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-offline
 
 functions:

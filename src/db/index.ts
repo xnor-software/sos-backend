@@ -1,6 +1,12 @@
+/**
+ * External Dependencies
+ */
 import knex from 'knex';
 import 'pg';
 
+/**
+ * Internal Dependencies
+ */
 import configs from './knexfile';
 
 const { NODE_ENV } = process.env;

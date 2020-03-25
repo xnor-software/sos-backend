@@ -12,6 +12,7 @@ web-report/
 coverage
 dist
 .serverless
+.env
 
 # macOS
 .DS_Store

@@ -2,13 +2,18 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "jest",
-    "generate:types": "graphql-codegen --config codegen.yml",
+    "generate:types": "npx graphql-codegen --config codegen.yml",
     "prebuild": "npm run generate:types",
     "build": "tsc",
     "predeploy": "npm run build",
     "deploy": "npx serverless deploy",
     "predev": "npm run build",
-    "dev": "npx serverless offline start"
+    "dev": "npx serverless offline start",
+    "predb": "npm run build",
+    "db": "./scripts/db.js",
+    "migrate": "npm run db -- migrate:latest",
+    "migrate:down": "npm run db -- migrate:down",
+    "migrate:up": "npm run db -- migrate:up"
   },
   "dependencies": {
     "apollo-server-lambda": "^2.11.0",
@@ -37,6 +42,7 @@
     "graphql-codegen-typescript": "^0.18.0-alpha.b1641564",
     "graphql-playground-middleware-lambda": "^1.7.13",
     "jest": "^25.1.0",
+    "serverless-dotenv-plugin": "^2.3.2",
     "serverless-offline": "^6.0.0",
     "ts-jest": "^25.2.1",
     "typescript": "~3.6.3"
