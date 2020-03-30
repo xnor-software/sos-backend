@@ -8,12 +8,10 @@ import { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda';
  */
 import { User } from 'types';
 import db from '../../db';
+import { json } from '../../response';
 
 // eslint-disable-next-line import/prefer-default-export
-export async function handler(event: APIGatewayEvent): Promise<APIGatewayProxyResult> {
+export async function handler( event: APIGatewayEvent ): Promise<APIGatewayProxyResult> {
     const users: Array<User> = await db.select( '*' ).from( 'users' );
-    return {
-        statusCode: 200,
-        body: JSON.stringify( users ),
-    };
+    return json( users );
 }
