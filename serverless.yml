@@ -68,18 +68,11 @@ plugins:
   - serverless-offline
 
 functions:
-  graphql:
-    handler: dist/handlers.graphqlHandler
+  users:
+    handler: dist/api/users/all.handler
     events:
     - http:
-        path: graphql
-        method: post
-        cors: true
-  playground:
-    handler: dist/handlers.playgroundHandler
-    events:
-    - http:
-        path: playground
+        path: api/users
         method: get
         cors: true
 #    The following are a few example events you can configure
