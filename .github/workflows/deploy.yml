@@ -24,7 +24,7 @@ jobs:
         run: |
           npm run migrate
         env:
-          NODE_ENV: prodution
+          NODE_ENV: production
           DB_HOST: ${{ secrets.DB_HOST }}
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
