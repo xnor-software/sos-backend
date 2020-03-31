@@ -23,6 +23,12 @@ org: xnorllc
 provider:
   name: aws
   runtime: nodejs12.x
+  environment:
+    NODE_ENV: ${env:NODE_ENV}
+    DB_HOST: ${env:DB_HOST}
+    DB_USER: ${env:DB_USER}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_NAME: ${env:DB_NAME}
 
 # you can overwrite defaults here
 #  stage: dev
@@ -58,21 +64,15 @@ provider:
 #    - exclude-me-dir/**
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-offline
 
 functions:
-  graphql:
-    handler: dist/handlers.graphqlHandler
+  users:
+    handler: dist/api/users/all.handler
     events:
     - http:
-        path: graphql
-        method: post
-        cors: true
-  playground:
-    handler: dist/handlers.playgroundHandler
-    events:
-    - http:
-        path: playground
+        path: api/users
         method: get
         cors: true
 #    The following are a few example events you can configure

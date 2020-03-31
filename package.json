@@ -6,11 +6,16 @@
     "predeploy": "npm run build",
     "deploy": "npx serverless deploy",
     "predev": "npm run build",
-    "dev": "npx serverless offline start"
+    "dev": "npx serverless offline start",
+    "predb": "npm run build",
+    "db": "./scripts/db.js",
+    "migrate": "npm run db -- migrate:latest",
+    "migrate:down": "npm run db -- migrate:down",
+    "migrate:up": "npm run db -- migrate:up"
   },
   "dependencies": {
-    "apollo-server-lambda": "^2.11.0",
-    "graphql": "^14.6.0"
+    "knex": "^0.20.13",
+    "pg": "^7.18.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -27,8 +32,10 @@
     "eslint-config-nfen": "^0.1.3",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.20.1",
-    "graphql-playground-middleware-lambda": "^1.7.13",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
     "jest": "^25.1.0",
+    "serverless-dotenv-plugin": "^2.3.2",
     "serverless-offline": "^6.0.0",
     "ts-jest": "^25.2.1",
     "typescript": "~3.6.3"
