@@ -21,5 +21,8 @@
     },
     "globals": {
         "expect": false
-    }
+    },
+    "include": [
+        "src/*"
+    ]
 }
