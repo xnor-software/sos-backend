@@ -6,7 +6,7 @@ import { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda';
 /**
  * Internal Dependencies
  */
-import { User } from 'types';
+import { User } from '../../types';
 import db from '../../db';
 import { json } from '../../response';
 

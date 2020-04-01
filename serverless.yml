@@ -75,6 +75,16 @@ functions:
         path: api/users
         method: get
         cors: true
+  auth:
+    handler: dist/api/auth/auth.handler
+    events:
+    - http:
+        path: api/auth
+        method: get
+        cors: true
+        integration: lambda-proxy
+        authorizer:
+          arn: ${env:AUTHORIZATION_ARN}
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
