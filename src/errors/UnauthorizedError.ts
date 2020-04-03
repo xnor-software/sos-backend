@@ -2,9 +2,10 @@ import StatusCodeError from './StatusCodeError';
 
 class UnauthorizedError extends StatusCodeError {
     public statusCode: number = 403;
+    public message: string = 'Unauthorized';
 
-    constructor(public message: string = 'Unauthorized'){
-        super(message);
+    constructor(public errorMessage: string = 'Unauthorized'){
+        super(errorMessage);
     }
 }
 

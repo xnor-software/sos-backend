@@ -11,6 +11,10 @@ import { json } from '../../response';
 
 // eslint-disable-next-line import/prefer-default-export
 export async function handler(event: APIGatewayEvent): Promise<APIGatewayProxyResult> {
-    await verifyAuthorizationToken(event);
-    return json(event);
+    try {
+        await verifyAuthorizationToken(event);
+        return json(event)
+    } catch (error) {
+        return json(error);
+    }
 }

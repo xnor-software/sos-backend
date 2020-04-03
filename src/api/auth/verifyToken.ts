@@ -14,10 +14,7 @@ import { APIGatewayEvent } from 'aws-lambda';
  */
 import UnauthorizedError from '../../errors/UnauthorizedError';
 
-export interface ClaimVerifyRequest {
-    readonly token?: string;
-}
-
+export type JWTToken = string;
 export interface ClaimVerifyResult {
     readonly userName: string;
     readonly clientId: string;
@@ -94,11 +91,10 @@ const getPublicKeys = async (): Promise<MapOfKidToPublicKey> => {
  * Verify the Authorization token on an event
  * @param event {APIGatewayEvent}
  */
-const verifyToken = async ({ token }: ClaimVerifyRequest): Promise<void> => {
+const verifyToken = async (token: JWTToken): Promise<void> => {
     if(! token){
         throw new UnauthorizedError('Invalid token');
     }
-
     const tokenSections = (token || '').split('.');
     if (tokenSections.length < 2) {
         throw new UnauthorizedError('requested token is invalid');
@@ -125,8 +121,7 @@ const verifyToken = async ({ token }: ClaimVerifyRequest): Promise<void> => {
 };
 
 export const verifyAuthorizationToken = async(event: APIGatewayEvent)=> {
-    const JWTToken = event.headers.Authorization;
-    await verifyToken({ token: JWTToken });
+    await verifyToken(event.headers.Authorization);
 }
 
 export default verifyToken;
