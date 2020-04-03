@@ -14,16 +14,21 @@
     "migrate:up": "npm run db -- migrate:up"
   },
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.13",
-    "pg": "^7.18.2"
+    "pg": "^7.18.2",
+    "r2": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@types/aws-lambda": "^8.10.46",
     "@types/enzyme": "^3.10.5",
     "@types/jest": "^25.1.4",
+    "@types/jsonwebtoken": "^8.3.8",
+    "@types/jwk-to-pem": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
+    "amazon-cognito-identity-js": "^3.2.7",
     "babel-jest": "^25.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-expo": "~8.0.0",

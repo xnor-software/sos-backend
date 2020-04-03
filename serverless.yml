@@ -29,6 +29,8 @@ provider:
     DB_USER: ${env:DB_USER}
     DB_PASSWORD: ${env:DB_PASSWORD}
     DB_NAME: ${env:DB_NAME}
+    AWS_REGION: ${env:AWS_REGION}
+    COGNITO_POOL_ID: ${env:COGNITO_POOL_ID}
 
 # you can overwrite defaults here
 #  stage: dev
@@ -82,7 +84,7 @@ functions:
         path: api/auth
         method: get
         cors: true
-        integration: lambda-proxy
+        integration: lambda
         authorizer:
           arn: ${env:AUTHORIZATION_ARN}
 #    The following are a few example events you can configure
