@@ -118,8 +118,8 @@ const verifyToken = async ({ token }: ClaimVerifyRequest): Promise<void> => {
     if (claim.iss !== cognitoIssuer) {
         throw new UnauthorizedError('claim issuer is invalid');
     }
-    if (claim.token_use !== 'access') {
-        throw new UnauthorizedError('claim use is not access');
+    if ( ! ['access', 'id' ].includes( claim.token_use ) ) {
+        throw new UnauthorizedError('Invalid claim use');
     }
     console.log(`claim confirmed for ${claim.username}`);
 };
