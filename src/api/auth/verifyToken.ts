@@ -94,9 +94,11 @@ const getPublicKeys = async (): Promise<MapOfKidToPublicKey> => {
  * Verify the Authorization token on an event
  * @param event {APIGatewayEvent}
  */
-const verifyToken = async (event: APIGatewayEvent): Promise<void> => {
-    let result: ClaimVerifyResult;
-    const token: string = event.headers.Authorization || '';
+const verifyToken = async ({ token }: ClaimVerifyRequest): Promise<void> => {
+    if(! token){
+        throw new UnauthorizedError('Invalid token');
+    }
+
     const tokenSections = (token || '').split('.');
     if (tokenSections.length < 2) {
         throw new UnauthorizedError('requested token is invalid');
@@ -121,5 +123,10 @@ const verifyToken = async (event: APIGatewayEvent): Promise<void> => {
     }
     console.log(`claim confirmed for ${claim.username}`);
 };
+
+export const verifyAuthorizationToken = async(event: APIGatewayEvent)=> {
+    const JWTToken = event.headers.Authorization;
+    await verifyToken({ token: JWTToken });
+}
 
 export default verifyToken;
